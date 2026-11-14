@@ -17,7 +17,7 @@ function NavList() {
   ];
 
   return (
-    <nav className="bg-white dark:bg-gray-800 border-b p-4 shadow-sm mb-6 rounded-lg">
+    <nav aria-label="Meetings navigation" className="bg-white dark:bg-gray-800 border-b p-4 shadow-sm mb-6 rounded-lg">
       <ul className="flex space-x-6">
         {links.map((link) => {
           const isActive = pathname === link.href;
@@ -25,6 +25,7 @@ function NavList() {
             <li key={link.name}>
               <Link 
                 href={link.href}
+                aria-current={isActive ? 'page' : undefined}
                 className={`font-semibold transition-colors ${
                   isActive 
                     ? 'text-blue-900 dark:text-blue-400 underline' 
