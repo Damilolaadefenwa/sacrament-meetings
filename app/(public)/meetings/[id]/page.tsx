@@ -20,7 +20,7 @@ async function MeetingDetailFetcher({ params }: { params: Promise<{ id: string }
   }
 
   //Fetching the meeting details using the ID. If no meeting is found, trigger a 404 page.
-  const meeting = getMeetingById(meetingId);
+  const meeting = await  getMeetingById(meetingId);
 
   if (!meeting) {
     notFound();

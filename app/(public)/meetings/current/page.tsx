@@ -19,7 +19,7 @@ export default async function CurrentMeetingPage() {
   const formattedDate = `${year}-${month}-${day}`;
 
   // 3. Query the database for a meeting on this date
-  const meetings = getMeetings(formattedDate);
+  const meetings = await getMeetings(formattedDate);
 
   // 4. Redirect based on results
   if (meetings.length > 0) {

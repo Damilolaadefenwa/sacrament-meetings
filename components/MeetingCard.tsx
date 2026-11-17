@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { SacramentMeeting } from '@/lib/types';
 
-export default function MeetingCard({ meeting }: { meeting: SacramentMeeting }) {
+export function MeetingCard({ meeting }: { meeting: SacramentMeeting }) {
   return (
     <Link href={`/meetings/${meeting.id}`} className="block border rounded-lg p-4 sm:p-5 shadow-sm hover:shadow-md transition bg-white dark:bg-gray-800 dark:border-gray-700 w-full">
       <div className="flex flex-wrap justify-between items-center gap-2 mb-3">
