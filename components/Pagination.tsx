@@ -13,9 +13,12 @@ export function Pagination({ totalPages }: { totalPages: number }) {
     const params = new URLSearchParams(searchParams);
     params.set('page', String(page));
     return `${pathname}?${params.toString()}`;
-  }
+  };
 
   if (totalPages <= 1) return null;
+
+  const isFirstPage = currentPage <= 1;
+  const isLastPage = currentPage >= totalPages;
 
   return (
     <nav
@@ -26,7 +29,12 @@ export function Pagination({ totalPages }: { totalPages: number }) {
         {currentPage > 1 && (
           <Link
             href={createPageURL(currentPage - 1)}
-            className="rounded-lg bg-blue-900 px-4 py-2 text-sm font-medium text-white hover:bg-blue-800 transition-colors"
+            aria-disabled={isFirstPage}
+            className={`rounded-lg px-4 py-2 text-sm font-medium ${
+              isFirstPage
+                ? 'pointer-events-none bg-gray-100 text-gray-400 dark:bg-gray-800 dark:text-gray-600'
+                : 'bg-gray-200 text-gray-900 hover:bg-gray-300 dark:bg-gray-700 dark:text-white dark:hover:bg-gray-600'
+            }`}
           >
             Previous
           </Link>
@@ -41,7 +49,12 @@ export function Pagination({ totalPages }: { totalPages: number }) {
         {currentPage < totalPages && (
           <Link
             href={createPageURL(currentPage + 1)}
-            className="rounded-lg bg-blue-900 px-4 py-2 text-sm font-medium text-white hover:bg-blue-800 transition-colors"
+            aria-disabled={isLastPage}
+            className={`rounded-lg px-4 py-2 text-sm font-medium ${
+              isLastPage
+                ? 'pointer-events-none bg-gray-100 text-gray-400 dark:bg-gray-800 dark:text-gray-600'
+                : 'bg-gray-200 text-gray-900 hover:bg-gray-300 dark:bg-gray-700 dark:text-white dark:hover:bg-gray-600'
+            }`}
           >
             Next
           </Link>
