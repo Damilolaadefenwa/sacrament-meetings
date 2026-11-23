@@ -10,6 +10,9 @@ export default function Header() {
         <Link href="/" className="text-2xl font-bold hover:underline">
           Lekki Ward
         </Link>
+        <Link href="/" className="text-2xl font-bold hover:underline">
+          Home
+        </Link>
         <p className="text-sm font-bold">{currentDate}</p>
       </div>
     </header>
