@@ -1,14 +1,23 @@
-//placeholder content for new sacrament app.
+import { Suspense } from 'react';
+import { CreateMeetingForm } from '@/components/CreateMeetingForm';
 
 export default function NewMeetingPage() {
   return (
-    <main className="py-8">
-      <h1 className="text-2xl font-bold text-gray-900 dark:text-white">
-        Create Meeting — Coming in Week 04
+    <main className="py-4">
+      <h1 className="text-2xl font-bold mb-6 text-gray-900 dark:text-white">
+        Schedule Sacrament Meeting
       </h1>
-      <p className="mt-2 text-gray-600 dark:text-gray-300">
-        The form to schedule a new sacrament meeting will be built here next week.
-      </p>
+      <Suspense fallback={
+          <div className="h-11 w-full rounded-lg bg-gray-200 dark:bg-gray-700 mb-6 animate-pulse" />
+        }>
+        <CreateMeetingForm />
+      </Suspense>
     </main>
   );
 }
+
+
+
+
+
+

@@ -1,4 +1,4 @@
-
+import Link from 'next/link';
 import { Suspense } from 'react';
 import { getMeetings, getMeetingsTotalPages } from '@/lib/meetings-db';
 import { MeetingSearch } from '@/components/MeetingSearch';
@@ -48,6 +48,13 @@ export default function MeetingsPage(props: {
       <h1 className="text-2xl font-bold mb-4 text-gray-900 dark:text-white">
         Sacrament Meetings
       </h1>
+
+      <Link
+        href="/meetings/new"
+        className="rounded-lg bg-blue-900 px-4 py-2 text-sm font-semibold text-white hover:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-blue-600"
+      >
+        + New Meeting
+      </Link>
 
       <Suspense
         fallback={
